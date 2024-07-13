@@ -1,6 +1,8 @@
 package commons;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.formula.atp.Switch;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -21,7 +23,7 @@ public class BaseTest {
     public WebDriver driver;
     public String GlobalFilePath;
     public String Browser;
-
+    private static final Logger log = LogManager.getLogger(BaseTest.class);
 
     public WebDriver initializeDriver() throws IOException {
 
@@ -46,7 +48,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
         driver.get(URL);
-
+        log.info("Successfully navigated to application");
         return driver;
     }
 
