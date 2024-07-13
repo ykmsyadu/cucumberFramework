@@ -6,6 +6,8 @@ import hooks.HooksSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import utils.ExcelUtils;
 
@@ -19,6 +21,8 @@ public class E2EPurchaseStepDef extends BaseTest {
     HooksSetUp hook;
     ExcelUtils utils = new ExcelUtils();
     HashMap<String, String> data = new HashMap<>();
+    private static final Logger log = LogManager.getLogger(E2EPurchaseStepDef.class);
+
     public E2EPurchaseStepDef(HooksSetUp hook) throws IOException {
         this.hook = hook;
         this.driver = hook.getDriver();
